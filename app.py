@@ -1,7 +1,10 @@
+import streamlit as st
 import ee
 import json
-import streamlit as st
 import datetime
+import folium
+
+from streamlit_folium import st_folium
 
 service_account = st.secrets["gcp_service_account"]
 
