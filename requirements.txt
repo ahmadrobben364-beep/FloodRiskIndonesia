@@ -1,7 +1,7 @@
 streamlit
-geemap
-earthengine-api
+streamlit-folium
 folium
-geopandas
-numpy
-matplotlib
+earthengine-api
+geemap
+python-box==7.2.0
+xyzservices
