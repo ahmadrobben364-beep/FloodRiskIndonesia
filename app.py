@@ -1,14 +1,18 @@
-import streamlit as st
 import ee
-import folium
-from streamlit_folium import st_folium
-import datetime
+import json
+import streamlit as st
 
-# =====================================================
-# EARTH ENGINE
-# =====================================================
+service_account = st.secrets["gcp_service_account"]
 
-ee.Initialize(project="ndvisaya")
+credentials = ee.ServiceAccountCredentials(
+    service_account["client_email"],
+    key_data=json.dumps(dict(service_account))
+)
+
+ee.Initialize(
+    credentials=credentials,
+    project="ndvisaya"
+)
 
 # =====================================================
 # EE TO FOLIUM
