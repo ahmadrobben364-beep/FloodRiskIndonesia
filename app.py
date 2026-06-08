@@ -450,7 +450,7 @@ adm1 = ee.FeatureCollection(
 
 add_ee_layer(
     m1,
-    adm2.style(
+    adm1.style(
         color='black',
         fillColor='00000000',
         width=1
