@@ -441,7 +441,22 @@ st.header("Flood Susceptibility Indonesia")
 m1 = folium.Map(
     location=[-2.5,118],
     zoom_start=5,
-    tiles="CartoDB positron"
+    tiles="CartoDB Voyager"
+)
+
+adm1 = ee.FeatureCollection(
+    "FAO/GAUL/2015/level2"
+)
+
+add_ee_layer(
+    m1,
+    adm2.style(
+        color='black',
+        fillColor='00000000',
+        width=1
+    ),
+    {},
+    "Batas Kabupaten/Kota"
 )
 
 add_ee_layer(
@@ -465,11 +480,19 @@ st.markdown("""
 
 🟩 Rendah
 
+Wilayah memiliki kerentanan rendah terhadap banjir. Umumnya berada pada daerah yang relatif tinggi, memiliki kemiringan lereng yang cukup besar, dan tidak berada pada jalur utama akumulasi aliran.
+
 🟨 Sedang
+
+Wilayah memiliki beberapa faktor pendukung terjadinya banjir, namun masih memiliki kemampuan drainase alami yang cukup baik.
 
 🟧 Tinggi
 
+Wilayah memiliki karakteristik yang mendukung terjadinya genangan, seperti elevasi rendah, lereng landai, atau berada dekat jalur akumulasi aliran.
+
 🟥 Sangat Tinggi
+
+Wilayah sangat rentan terhadap banjir karena kombinasi topografi rendah, lereng datar, akumulasi aliran tinggi, dan penggunaan lahan yang kurang mendukung infiltrasi.
 
 ### Penjelasan Peta
 
@@ -505,7 +528,22 @@ st.header("Flood Risk Indonesia")
 m2 = folium.Map(
     location=[-2.5,118],
     zoom_start=5,
-    tiles="CartoDB positron"
+    tiles="CartoDB Voyager"
+)
+
+adm2 = ee.FeatureCollection(
+    "FAO/GAUL/2015/level2"
+)
+
+add_ee_layer(
+    m2,
+    adm2.style(
+        color='black',
+        fillColor='00000000',
+        width=1
+    ),
+    {},
+    "Batas Kabupaten/Kota"
 )
 
 add_ee_layer(
@@ -529,11 +567,19 @@ st.markdown("""
 
 🟩 Aman
 
+Kondisi saat ini menunjukkan risiko banjir rendah. Curah hujan, genangan permukaan, dan kerentanan wilayah relatif kecil.
+
 🟨 Waspada
+
+Mulai terdapat indikasi peningkatan risiko banjir akibat curah hujan atau peningkatan genangan pada beberapa lokasi.
 
 🟧 Siaga
 
+Risiko banjir cukup tinggi. Wilayah menunjukkan kombinasi curah hujan tinggi, peningkatan air permukaan, dan kerentanan fisik yang signifikan.
+
 🟥 Bahaya
+
+Risiko banjir sangat tinggi. Terdapat indikasi kuat terjadinya atau berkembangnya banjir sehingga perlu peningkatan kewaspadaan dan mitigasi.
 
 ### Penjelasan Peta
 
